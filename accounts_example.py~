@@ -1,7 +1,7 @@
 from nxtapi import *
 
 someAccount = "10105875265190846103"
-print 'balance ',get_Account(someAccount)['balanceNQT']
+print get_Account(someAccount)
 
 
 """
