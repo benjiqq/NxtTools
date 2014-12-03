@@ -10,7 +10,7 @@ print 'a peer => ',peers[0]
 def test_port(peer):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(3)
-    #peer = '85.214.222.82'
+
     result = sock.connect_ex((peer,80))
     if result == 0:
         print "Port is open ",peer
