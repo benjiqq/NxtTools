@@ -1,4 +1,13 @@
+"""
+accounts example
+"""
+
 from nxtapi import *
+
+def get_Account(accountID):
+    j = req("getAccount",account=accountID)
+    return j
+    
 
 someAccount = "10105875265190846103"
 print 'balance ',get_Account(someAccount)['balanceNQT']

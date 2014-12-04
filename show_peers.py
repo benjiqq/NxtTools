@@ -2,6 +2,12 @@ from nxtapi import *
 import urllib
 import socket
 
+
+def get_peers():
+    url = build_req("getPeers")
+    j = make_req(url)
+    return j
+
 peers = get_peers()['peers']
 print 'number of peers ',len(peers)
 
@@ -37,5 +43,5 @@ print 'total open ports 80' ,c
 """
  python show_peers.py 
 number of peers  328
-a peer  85.214.222.82
+a peer  XXX
 """

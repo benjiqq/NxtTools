@@ -12,6 +12,12 @@ transaction
 [u'feeNQT', u'senderPublicKey', u'height', u'ecBlockId', u'deadline', u'ecBlockHeight', u'amountNQT', u'senderRS', u'version', u'attachment', u'type', u'timestamp', u'blockTimestamp', u'fullHash', u'recipient', u'recipientRS', u'transaction', u'sender', u'signatureHash', u'subtype', u'confirmations', u'signature', u'block']
 """
 
+
+def get_tx(accountID):
+    url = build_req("getAccountTransactions",account=accountID)
+    j = make_req(url)
+    return j
+
 def filter_inputs(txs, acc):
     inputs = list()
     for tx in txs[:]:
