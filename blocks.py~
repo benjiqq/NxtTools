@@ -1,4 +1,0 @@
-http://localhost:7876/nxt?
-    requestType=getAccountBlockIds&
-    account=7114946486381367146&
-    lastIndex=0
