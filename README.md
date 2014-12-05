@@ -19,6 +19,12 @@ python accounts_example.py
 balance  150800000000
 ```
 
+## Requests
+
+The nxtapi builds the HTTP requests.
+
+details on the Nxt API, see http://wiki.nxtcrypto.org/wiki/Nxt_API
+
 ## Install
 
 only requirement is ```pip install requests```
