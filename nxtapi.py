@@ -34,24 +34,6 @@ def make_req(url):
 #-----
 #examples
 
-def get_Account(accountID):
-    url = build_req("getAccount",account=accountID)
-    print url
-    j = make_req(url)
-    return j
-
-def get_tx(accountID):
-    url = build_req("getAccountTransactions",account=accountID)
-    j = make_req(url)
-    return j
-    
-
-
-def get_peers():
-    url = build_req("getPeers")
-    j = make_req(url)
-    return j
-
 
 
 
