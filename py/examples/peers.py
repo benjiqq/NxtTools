@@ -1,17 +1,16 @@
-from nxtapi import *
-import urllib
-import socket
+import sys
+sys.path.append("../api") 
 
+from nxtapi import *
+import urllib2
+import socket
+import json
 
 def get_peers():
     url = build_req("getPeers")
     j = make_req(url)
     return j
 
-peers = get_peers()['peers']
-print 'number of peers ',len(peers)
-
-print 'a peer => ',peers[0]
 
 def test_port(peer):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -31,17 +30,27 @@ def test_port(peer):
         return False
     #    print "Port is not open"
 
+def get_geo(peers):
+    g = list()
 
-c = 0
-for p in peers:
-    #print p
-    if test_port(p):
-        c+=1
+    for p in peers[:]:
+        u = "http://www.telize.com/geoip/" + p
+        s = urllib2.urlopen(u).read()
+        j = json.loads(s)
+        lat = j["latitude"]
+        lon = j["longitude"]
+        g.append((lat,lon))
+        print lat,lon
 
-print 'total open ports 80' ,c
+    return g
 
-"""
- python show_peers.py 
-number of peers  328
-a peer  XXX
-"""
+
+
+peers = get_peers()['peers']
+print 'number of peers ',len(peers)
+
+print 'a peer => ',peers[0]
+#g = get_geo(peers)
+#with open('geo.csv','w') as f:
+#    for x in g:
+#        f.write(str(

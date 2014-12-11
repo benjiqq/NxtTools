@@ -1,0 +1,56 @@
+<head>
+  <title>nxtgeo</title>
+<script src="/topojson.v1.min.js"></script>
+<style>
+body {
+ font-family: Helvetica;
+}
+
+.country {
+				stroke: #ccc;
+				stroke-width: .4px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+{{> peers}}
+
+
+</body>
+
+
+<template name="peers">
+<h1>Nxt Geo Peers</h1>
+<!--<p>{{loading}}</p>-->
+<p>#Peers: {{numpeers}}</p>
+
+{{> vis}}
+
+<div id="table-wrapper">
+  <div id="table-scroll">
+
+<table border="1" style="height:500">
+<tr><th>IP address</th><th>Latitude</th><th>Longitude</th></tr>
+{{#each peers}}
+<tr>
+<td>{{ip}}</td>
+<td>{{latitude}}</td>
+<td>{{longitude}}</td>
+</tr>
+{{/each}}
+</table>
+
+</div>
+</div>
+
+</template>
+
+<template name="vis">
+  <div id="container">
+  </div>
+
+</template>
